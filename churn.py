@@ -1,7 +1,7 @@
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 import numpy as np
-import torch as pt
+import joblib
 
 churn_data = pd.read_csv("churndata.csv")
 
@@ -29,7 +29,7 @@ t = churn_data["Churn"]
 model = RandomForestClassifier()
 
 model.fit(f,t)
-pt.save(model,"model.pt")
+joblib.dump(model, "model.joblib", compress=3)
 
 data= np.array([[4,35,9,12,5,17,232,18,1,2]])
 result= model.predict(data)

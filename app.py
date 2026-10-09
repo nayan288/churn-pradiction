@@ -1,7 +1,10 @@
 from flask import Flask,request,render_template
-import torch as pt
+import joblib
+import os
 
-model = pt.load("model.pt", weights_only=False)
+BASE = os.path.dirname(os.path.abspath(__file__))
+model = joblib.load(os.path.join(BASE, "model.joblib"))
+
 app =Flask(__name__)
 
 @app.route("/",methods=["GET","POST"])
