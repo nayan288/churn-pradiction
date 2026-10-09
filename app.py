@@ -4,7 +4,7 @@ import torch as pt
 model = pt.load("model.pt", weights_only=False)
 app =Flask(__name__)
 
-@app.route("/churndata",methods=["GET","POST"])
+@app.route("/",methods=["GET","POST"])
 def churndata():
     if request.method == "POST":
         Age = request.form.get("Age")
