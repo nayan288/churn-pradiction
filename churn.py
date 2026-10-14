@@ -19,7 +19,7 @@ churn_data["new_Gender"] = churn_data["Gender"].map({
     "Female":0,"Male":1
 })
 
-# print(new_data)
+# print(new_data)   
 
 churn_data.to_csv("new_data.csv",index=False)
 
@@ -30,7 +30,7 @@ model = RandomForestClassifier()
 
 model.fit(f,t)
 joblib.dump(model, "model.joblib", compress=3)
-
+    
 data= np.array([[4,35,9,12,5,17,232,18,1,2]])
 result= model.predict(data)
 
